@@ -65,7 +65,7 @@ $absentee_query = mysqli_query($conn, "SELECT * FROM absentee WHERE date = '$dat
         <div class="content-wrapper">
 
           <div class="row">
-            <div class="col-md-10 col-sm-12 mx-auto">
+            <div class="col-sm-12 mx-auto">
               <div class="card">
                 <div class="card-header">
                   <div class="row">
