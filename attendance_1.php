@@ -121,12 +121,7 @@ if (isset($_GET['combine_class'])) {
                           $progress_w = 0;
                           $d_date = $date;
 
-                          if (isset($_GET['combine_class'])) {
-                            $class_id = $_GET['combine_class'];
-                            $chk_query = mysqli_query($conn, "SELECT * FROM attendance WHERE combine_class = $class_id OR class IN ($classes) ORDER BY date DESC LIMIT 4");
-                          } else {
-                            $chk_query = mysqli_query($conn, "SELECT * FROM attendance WHERE service = 1 AND class = $class_id AND date <= '$date' ORDER BY date DESC LIMIT 4");
-                          }
+                          $chk_query = mysqli_query($conn, "SELECT * FROM attendance WHERE class LIKE '%$class_id%' AND date <= '$date' ORDER BY date DESC LIMIT 4");
 
                           while ($date_array = mysqli_fetch_array($chk_query)) {
                             $c_date = $date_array['date'];
