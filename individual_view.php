@@ -48,45 +48,6 @@ if (isset($_GET['edited'])) {
             aria-describedby="search">
         </div>
     </nav>
-    <nav class="navbar-breadcrumb col-xl-12 col-12 d-flex flex-row p-0">
-      <div class="navbar-links-wrapper d-flex align-items-stretch">
-        <div class="nav-link">
-          <a href="javascript:;"><i class="typcn typcn-calendar-outline"></i></a>
-        </div>
-        <div class="nav-link">
-          <a href="javascript:;"><i class="typcn typcn-mail"></i></a>
-        </div>
-        <div class="nav-link">
-          <a href="javascript:;"><i class="typcn typcn-folder"></i></a>
-        </div>
-        <div class="nav-link">
-          <a href="javascript:;"><i class="typcn typcn-document-text"></i></a>
-        </div>
-      </div>
-      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <ul class="navbar-nav mr-lg-2">
-          <li class="nav-item">
-            <div class="d-flex align-items-baseline">
-              <!-- <i class="typcn typcn-chevron-right"></i>
-              <p class="mb-0">Week 1</p> -->
-            </div>
-          </li>
-        </ul>
-        <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item nav-search d-none d-md-block mr-0">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search..." aria-label="search"
-                aria-describedby="search">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="search">
-                  <i class="typcn typcn-zoom"></i>
-                </span>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_settings-panel.php -->
       <?php include('partials/_settings-panel.php') ?>
@@ -117,7 +78,12 @@ if (isset($_GET['edited'])) {
                           <a href="individual_edit.php?id=<?php echo $member_id ?>" class="text-light">
                           <i class="typcn typcn-edit btn-icon-prepend"></i> Edit</a>
                         </button>
-                        <button id="status" type="button" class="ml-1 btn btn-danger btn-sm"onclick="changeStatus()">Deactivate</button>
+                        <?php if ($member['status'] == 'active'): ?>
+                          <button id="status" type="button" class="ml-1 btn btn-danger btn-sm"onclick="changeStatus(this.id)">Deactivate
+                        <?php else: ?>
+                          <button id="status" type="button" class="ml-1 btn btn-success btn-sm"onclick="changeStatus(this.id)">Activate
+                        <?php endif; ?>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -232,34 +198,34 @@ if (isset($_GET['edited'])) {
   <!-- base:js -->
   <script src="vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
+
   <!-- Status Change jQuery Code -->
     <script>
-        function changeStatus() {
-          if (document.getElementById("status").innerHTML == 'Deactivate') {
-            document.getElementById("status").innerHTML = 'Activate';
-            document.getElementById("status").classList.remove('btn-danger');
-            document.getElementById("status").classList.add('btn-success');
+        function changeStatus(id) {
+          if (document.getElementById(id).innerHTML == 'Deactivate') {
+            document.getElementById(id).innerHTML = 'Activate';
+            document.getElementById(id).classList.remove('btn-danger');
+            document.getElementById(id).classList.add('btn-success');
+            action = 'inactive';
           } else {
-            document.getElementById("status").innerHTML = 'Deactivate';
-            document.getElementById("status").classList.remove('btn-success');
-            document.getElementById("status").classList.add('btn-danger');
+            document.getElementById(id).innerHTML = 'Deactivate';
+            document.getElementById(id).classList.remove('btn-success');
+            document.getElementById(id).classList.add('btn-danger');
+            action = 'active';
           }
-          // if (window.XMLHttpRequest) {
-          //     // code for IE7+, Firefox, Chrome, Opera, Safari
-          //     xmlhttp = new XMLHttpRequest();
-          // } else {
-          //     // code for IE6, IE5
-          //     xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-          // }
-          // xmlhttp.onreadystatechange = function () {
-          //   if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-          //       document.getElementById("edit-application").innerHTML = xmlhttp.responseText;
-          //     }
-          // };
-          // xmlhttp.open("GET", "php/edit.php?id=" + id, true);
-          // xmlhttp.send();
+
+          $.ajax({
+            type: "POST",
+            url: "php/manage_member.php",
+            data: {
+              manage: '1',
+              member: <?php echo $member_id ?>,
+              action: action
+            }
+          });
         }
     </script>
+
   <!-- Plugin js for this page-->
   <script src="vendors/chart.js/Chart.min.js"></script>
   <!-- End plugin js for this page-->
