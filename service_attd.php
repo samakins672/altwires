@@ -7,15 +7,6 @@ $service_id = $_GET['type'];
 $service_q = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM service WHERE id = $service_id"));
 $service = $service_q['name'];
 
-if ($service_q['repetition'] == 'weekly') {
-  $service_day = $service_q['repeat_day'];
-  $date_text = "Current Week";
-  $service_date = date('Y-m-d', strtotime("last ".$service_day));
-} else {
-  $service_date = $date;
-  $date_text = "Today";
-}
-
 $h_alert = "d-none";
 if (isset($_GET['success'])) {
   $alert = "Attendance Has Been Submitted Successfully!";
@@ -29,6 +20,23 @@ if (isset($_GET['err'])) {
 if (isset($_GET['date'])) {
   $date = strtotime($_GET['date']);
   $date = date('Y-m-d', $date);
+}
+
+if ($service_q['repetition'] == 'weekly') {
+  $date_text = "Current Week";
+  $service_day = $service_q['repeat_day'];
+
+  $_service_day = date('w', strtotime($date));
+  $_service_day = jddayofweek($_service_day - 1, 2);
+
+  if ($short_day == $_service_day) {
+    $service_date = $date;
+  } else {
+    $service_date = date('Y-m-d', strtotime("last " . $service_day));
+  }
+} else {
+  $service_date = $date;
+  $date_text = "Today";
 }
 
 if (isset($_GET['from']) || isset($_GET['to'])) {
