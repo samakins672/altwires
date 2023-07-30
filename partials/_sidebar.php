@@ -64,6 +64,12 @@ $services_query = mysqli_query($conn, "SELECT * FROM service WHERE status = 'act
         <span class="menu-title">New Member</span>
     </a>
     </li>
+    <li class="nav-item">  
+      <a class="nav-link" href="settings">
+        <i class="typcn typcn-cog-outline menu-icon"></i>
+        <span class="menu-title">Settings</span>
+    </a>
+    </li>
     <li class="nav-item">    
       <a class="nav-link text-danger" href="login.php?logout">
         <i class="typcn typcn-eject menu-icon"></i>

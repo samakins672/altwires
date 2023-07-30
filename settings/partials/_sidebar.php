@@ -1,6 +1,12 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
     <li class="nav-item">
+      <a id="profile" class="nav-link" href="../">
+        <i class="typcn typcn-device-desktop menu-icon"></i>
+        <span class="menu-title">Back to Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
       <a id="profile" class="nav-link" href="javascript:;" onclick="newPage(this.id)">
         <i class="typcn typcn-user menu-icon"></i>
         <span class="menu-title">My Profile</span>
