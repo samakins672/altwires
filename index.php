@@ -87,7 +87,7 @@ include('php/page-config.php');
               <div class="col-md-6 col-12 m-auto">
                 <div class="card">
                   <div class="card-header bg-gradient-primary">
-                    <h5 class="card-title text-light">Upcoming Birthdays</h5>
+                    <h3 class="card-title text-light my-3">Upcoming Birthdays</h3>
                   </div>
                   <div class="card-body">
                     <table class="table">
