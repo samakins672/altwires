@@ -51,7 +51,7 @@ $brethren_query = mysqli_query($conn, $f_query . " ORDER BY $order_by LIMIT $ini
       <th>Name</th>
       <th>Phone</th>
       <th>Role</th>
-      <th>Attendance</th>
+      <th>Branch</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -62,21 +62,6 @@ $brethren_query = mysqli_query($conn, $f_query . " ORDER BY $order_by LIMIT $ini
         $brethren_id = $brethren['id'];
         $role_id = $brethren['role'];
         $role = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM role WHERE id = '$role_id'"))['name'];
-        $progress = 0;
-        $progress_w = 0;
-        $chk_query = mysqli_query($conn, "SELECT DISTINCT service, date FROM attendance WHERE service = 1 AND date <= '$date' ORDER BY date DESC LIMIT 4");
-        while ($date_array = mysqli_fetch_array($chk_query)) {
-          $c_date = $date_array['date'];
-          $chk = mysqli_query($conn, "SELECT * FROM sun_sch_attd WHERE brethren = $brethren_id AND event_date = '$c_date'");
-          if (mysqli_num_rows($chk) == 1) {
-            $progress_w += 25;
-            $progress++;
-          }
-        }
-        $progress_c = 'warning';
-        if ($progress_w > 50) {
-          $progress_c = 'success';
-        }
         ?>
         <tr>
           <td>
@@ -87,11 +72,7 @@ $brethren_query = mysqli_query($conn, $f_query . " ORDER BY $order_by LIMIT $ini
           <td><?php echo strtoupper($brethren['name']) ?></td>
           <td><?php echo $brethren['phone'] ?></td>
           <td><?php echo $role ?></td>
-          <td>
-            <div class="progress">
-              <div class="progress-bar bg-<?php echo $progress_c ?>" role="progressbar" style="width: <?php echo $progress_w ?>%"><?php echo $progress ?>/4</div>
-            </div>
-          </td>
+          <td><?php echo strtoupper($brethren['branch']) ?></td>
           <td>
             <div class="d-flex align-items-center">
               <button class="btn btn-info btn-rounded btn-icon mr-2">

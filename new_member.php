@@ -50,13 +50,19 @@ if (isset($_GET['err'])) {
                   </h4>
                   <form action="php/new_member.php" enctype="multipart/form-data" method="post" class="forms-sample">
                     <input type="hidden" name="user_id" value="<?php echo $_SESSION['id'] ?>">
-                    <div class="form-group">
-                      <label for="name">Name</label>
-                      <input type="text" class="form-control" name="name" placeholder="Name">
-                    </div>
-                    <div class="form-group">
-                      <label for="phone">Phone Number</label>
-                      <input type="text" class="form-control" name="phone" placeholder="Phone">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="name">Name</label>
+                          <input type="text" class="form-control" name="name" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="phone">Phone Number</label>
+                          <input type="text" class="form-control" name="phone" placeholder="Phone">
+                        </div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <label for="email">Email address</label>
@@ -120,6 +126,8 @@ if (isset($_GET['err'])) {
                         </div>
                       </div>
                     </div>
+                    <div class="row">
+                      <div class="col-sm-6">
                     <div class="form-group">
                       <label>Passport Photograph</label>
                       <input type="file" accept="image/*" name="picture" class="file-upload-default">
@@ -129,34 +137,44 @@ if (isset($_GET['err'])) {
                           <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                         </span>
                       </div>
-                    </div>
+                    </div></div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="branch">Branch</label>
+                          <input type="text" class="form-control" name="branch" placeholder="Branch Name">
+                        </div></div>
+                      <div class="col-sm-6">
                     <div class="form-group">
                       <label for="occupation">Occupation</label>
                       <input type="text" class="form-control" name="occupation" placeholder="Occupation">
-                    </div>
+                    </div></div>
+                      <div class="col-sm-6">
                     <div class="form-group">
                       <label for="qualification">Qualification</label>
                       <input type="text" class="form-control" name="qualification" placeholder="Qualification">
-                    </div>
+                    </div></div>
+                      <div class="col-sm-6">
                     <div class="form-group">
                       <label for="role">Role in Church</label>
                       <select class="form-control" name="role">
                         <?php while ($roles = mysqli_fetch_array($role_query)) { ?>
-                          <option <?php if ($roles['name'] == 'member') {
-                            echo 'selected';
-                          } ?> 
-                            value="<?php echo $roles['id'] ?>">
-                            <?php echo $roles['name'] ?></option>
+                            <option <?php if ($roles['name'] == 'member') {
+                              echo 'selected';
+                            } ?> 
+                              value="<?php echo $roles['id'] ?>">
+                              <?php echo $roles['name'] ?></option>
                         <?php } ?>
                       </select>
-                    </div>
+                    </div></div>
+                      <div class="col-sm-6">
                     <div class="form-group">
                       <label for="class">Sunday Class</label>
                       <select class="form-control" name="class">
                         <?php while ($class = mysqli_fetch_array($class_query)) { ?>
-                          <option value="<?php echo $class['id'] ?>"><?php echo $class['name'] ?></option>
+                            <option value="<?php echo $class['id'] ?>"><?php echo $class['name'] ?></option>
                         <?php } ?>
                       </select>
+                    </div></div>
                     </div>
                     <button name="submit-member" type="submit" class="btn btn-primary mr-2">Submit</button>
                     <button type="reset" class="btn btn-light">Cancel</button>

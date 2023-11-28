@@ -10,6 +10,7 @@ $address = mysqli_real_escape_string($conn, $_POST['address']);
 $gender = $_POST['gender'];
 $marital_status = $_POST['marital_status'];
 $dob = $_POST['dob'];
+$branch = $_POST['branch'];
 $origin_state = mysqli_real_escape_string($conn, $_POST['state']);
 $origin_country = $_POST['country'];
 $class = $_POST['class'];
@@ -44,8 +45,8 @@ if ($_FILES['picture']['name'] == '') {
 }
 
 if (isset($_POST['submit-member'])) {
-  mysqli_query($conn, "INSERT INTO brethren (name,	email,	phone,	address,	gender,	marital_status,	dob,	origin_state,	origin_country,	picture,	class,	role,	qualification,	occupation, added_by) 
-    VALUES ('$name', '$email', '$phone', '$address', '$gender', '$marital_status',	'$dob', '$origin_state', '$origin_country',	'$picture',	$class,	$role, '$qualification', '$occupation', $user_id)");
+  mysqli_query($conn, "INSERT INTO brethren (name,	email,	phone,	address,	gender,	marital_status,	dob, branch,	origin_state,	origin_country,	picture,	class,	role,	qualification,	occupation, added_by) 
+    VALUES ('$name', '$email', '$phone', '$address', '$gender', '$marital_status',	'$dob', '$branch', '$origin_state', '$origin_country',	'$picture',	$class,	$role, '$qualification', '$occupation', $user_id)");
   if (mysqli_affected_rows($conn) < 0) {
     header('Location: ../new_member.php?err1');
   } else {
@@ -59,7 +60,7 @@ if (isset($_POST['submit-member'])) {
 
 if (isset($_POST['edit-member'])) {
   mysqli_query($conn, "UPDATE brethren SET name = '$name', 	email = '$email',	phone = '$phone',	address = '$address',	
-    gender = '$gender',	marital_status = '$marital_status',	dob = '$dob',	
+    gender = '$gender',	marital_status = '$marital_status',	dob = '$dob', branch = '$branch',	
     origin_state = '$origin_state',	origin_country = '$origin_country',	
     picture = '$picture',	class = $class,	role = $role,	qualification = '$qualification',	
     occupation = '$occupation', added_by = $user_id WHERE id = $member_id");

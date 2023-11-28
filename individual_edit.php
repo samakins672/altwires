@@ -129,14 +129,22 @@ if (isset($_GET['err1'])) {
                         </div>
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label for="address">Home address</label>
-                      <input type="text" class="form-control" name="address" placeholder="Address" value="<?php echo $member['address'] ?>">
-                    </div>
                     <p class="card-description">
                       Place of Origin
                     </p>
                     <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="branch">Branch</label>
+                          <input type="text" class="form-control" name="branch" placeholder="Branch Name" value="<?php echo $member['branch'] ?>">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="address">Home address</label>
+                          <input type="text" class="form-control" name="address" placeholder="Address" value="<?php echo $member['address'] ?>">
+                        </div>
+                      </div>
                       <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">State</label>
