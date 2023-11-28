@@ -40,7 +40,7 @@ $absentee_query = mysqli_query($conn, "SELECT * FROM absentee WHERE date = '$dat
     <!-- partial --><br><br><br>
     <nav class="bg-gradient-primary col-xl-12 col-12 d-flex flex-row p-3 text-light">
         <div class="col-sm-8 d-flex align-items-center align-items-baseline my-auto">
-          <h6 class="mb-0">Mafoluku Zone</h6>
+          <h6 class="mb-0">Youth Db</h6>
           <i class="typcn typcn-chevron-right"></i>
           <p class="mb-0">Absentees</p>
           <i class="typcn typcn-chevron-right"></i>
