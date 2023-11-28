@@ -6,6 +6,7 @@ $h_alert = 'd-none';
 
 $role_query = mysqli_query($conn, "SELECT * FROM role WHERE status = 'active'");
 $class_query = mysqli_query($conn, "SELECT * FROM class WHERE status = 'active'");
+$branch_query = mysqli_query($conn, "SELECT * FROM branch WHERE status = 'active'");
 
 if (isset($_GET['new'])) {
   $alert = "A Member Has Been Uploaded Successfully!";
@@ -141,8 +142,12 @@ if (isset($_GET['err'])) {
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label for="branch">Branch</label>
-                          <input type="text" class="form-control" name="branch" placeholder="Branch Name">
-                        </div></div>
+                          <select name="branch" class="form-control">
+                            <?php while ($branch = mysqli_fetch_array($branch_query)) { ?>
+                              <option value="<?php echo $branch['id'] ?>"> <?php echo $branch['name'] ?></option>
+                          <?php } ?>
+                          </select>
+                        </div>
                       <div class="col-sm-6">
                     <div class="form-group">
                       <label for="occupation">Occupation</label>

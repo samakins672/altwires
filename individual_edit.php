@@ -17,6 +17,7 @@ $role = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM role WHERE id = '$
 
 $role_query = mysqli_query($conn, "SELECT * FROM role WHERE status = 'active' AND id != $role_id");
 $class_query = mysqli_query($conn, "SELECT * FROM class WHERE status = 'active' AND id != $class_id");
+$branch_query = mysqli_query($conn, "SELECT * FROM branch WHERE status = 'active'");
 
 $h_alert = 'd-none';
 if (isset($_GET['err1'])) {
@@ -136,7 +137,11 @@ if (isset($_GET['err1'])) {
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="branch">Branch</label>
-                          <input type="text" class="form-control" name="branch" placeholder="Branch Name" value="<?php echo $member['branch'] ?>">
+                            <select name="branch" class="form-control">
+                              <?php while ($branch = mysqli_fetch_array($branch_query)) { ?>
+                                <option value="<?php echo $branch['id'] ?>"> <?php echo $branch['name'] ?></option>
+                            <?php } ?>
+                            </select>
                         </div>
                       </div>
                       <div class="col-md-6">
