@@ -165,6 +165,24 @@ if (isset($_GET['change_pic'])) {
       });
     }
 
+    function saveBranch() {
+      var branch_id = $('#branch_id').val();
+      var name = $('#name').val();
+
+      $.ajax({
+        type: "POST",
+        url: "php/manage_branch.php",
+        data: {
+          save: '1',
+          branch_id: branch_id,
+          name: name
+        }
+      })
+      .done(function (msg) {
+        $('#main').html(msg);
+      });
+    }
+
     function saveService() {
       var service_id = $('#service_id').val();
       var name = $('#name').val();

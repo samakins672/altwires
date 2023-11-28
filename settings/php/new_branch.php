@@ -32,7 +32,7 @@ if (isset($_GET['branch'])) {
       <input type="text" class="form-control form-control-sm" id="name" value="<?php echo $s_name ?>">
     </div>
     <div class="form-group col-sm-12">
-      <button type="button" class="btn btn-sm btn-primary mr-2" onclick="savebranch()"><?php echo $btn_text ?></button>
+      <button type="button" class="btn btn-sm btn-primary mr-2" onclick="saveBranch()"><?php echo $btn_text ?></button>
     </div>
   </form>
 </div>
