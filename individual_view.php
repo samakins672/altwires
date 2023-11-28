@@ -112,6 +112,16 @@ if (isset($_GET['edited'])) {
                     <div class="col-md-6">
                       <address>
                         <p class="font-weight-bold">
+                          Branch
+                        </p>
+                        <p class="mb-2">
+                          <?php echo $member['branch'] ?>.
+                        </p>
+                      </address>
+                    </div>
+                    <div class="col-md-6">
+                      <address>
+                        <p class="font-weight-bold">
                           Address
                         </p>
                         <p class="mb-2">
