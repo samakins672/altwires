@@ -40,43 +40,43 @@ include('php/page-config.php');
         <div class="content-wrapper">
 
           <div class="row">
-            <div class="col-8 m-auto stretch-card">
+            <div class="col-12 m-auto stretch-card">
               <!-- Total Number of Members -->
-              <div class="col-md-3">
+              <div class="col-6 col-md-3">
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Total Members</h5>
-                    <p class="card-text">1500</p>
+                    <p class="h1">1500</p>
                   </div>
                 </div>
               </div>
 
               <!-- Total Number of Visitors -->
-              <div class="col-md-3">
+              <div class="col-6 col-md-3">
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Total Visitors</h5>
-                    <p class="card-text">500</p>
+                    <p class="h1">500</p>
                   </div>
                 </div>
               </div>
 
               <!-- Total Number of Branches -->
-              <div class="col-md-3">
+              <div class="col-6 col-md-3">
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Total Branches</h5>
-                    <p class="card-text">10</p>
+                    <p class="h1">10</p>
                   </div>
                 </div>
               </div>
 
               <!-- Total Number of Workers -->
-              <div class="col-md-3">
+              <div class="col-6 col-md-3">
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Total Workers</h5>
-                    <p class="card-text">200</p>
+                    <p class="h1">200</p>
                   </div>
                 </div>
               </div>
@@ -84,7 +84,7 @@ include('php/page-config.php');
 
             <!-- Table for Upcoming Birthdays -->
             <div class="row mt-4">
-              <div class="col-md-6">
+              <div class="col-md-6 col-12">
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Upcoming Birthdays</h5>
