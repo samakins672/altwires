@@ -25,7 +25,7 @@ $branch_query = mysqli_query($conn, "SELECT * FROM branch ORDER BY status, id");
 
 ?>
 <div class="card-header">
-  <h5 class="text-titlecase"> branchs </h5>
+  <h5 class="text-titlecase"> Branches </h5>
 </div>
 <div class="table-responsive pt-1">
   <table class="table table-striped project-orders-table">
