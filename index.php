@@ -46,7 +46,7 @@ include('php/page-config.php');
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Total Members</h5>
-                    <p class="h1">1500</p>
+                    <p class="h1 text-primary">1500</p>
                   </div>
                 </div>
               </div>
@@ -56,7 +56,7 @@ include('php/page-config.php');
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Total Visitors</h5>
-                    <p class="h1">500</p>
+                    <p class="h1 text-primary">500</p>
                   </div>
                 </div>
               </div>
@@ -66,7 +66,7 @@ include('php/page-config.php');
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Total Branches</h5>
-                    <p class="h1">10</p>
+                    <p class="h1 text-primary">10</p>
                   </div>
                 </div>
               </div>
@@ -76,7 +76,7 @@ include('php/page-config.php');
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Total Workers</h5>
-                    <p class="h1">200</p>
+                    <p class="h1 text-primary">200</p>
                   </div>
                 </div>
               </div>
