@@ -130,9 +130,6 @@ if (isset($_GET['err1'])) {
                         </div>
                       </div>
                     </div>
-                    <p class="card-description">
-                      Place of Origin
-                    </p>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
@@ -150,6 +147,10 @@ if (isset($_GET['err1'])) {
                           <input type="text" class="form-control" name="address" placeholder="Address" value="<?php echo $member['address'] ?>">
                         </div>
                       </div>
+                      
+                      <p class="card-description">
+                        Place of Origin
+                      </p>
                       <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">State</label>

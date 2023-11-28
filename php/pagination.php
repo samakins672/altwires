@@ -61,26 +61,28 @@ $brethren_query = mysqli_query($conn, $f_query . " ORDER BY $order_by LIMIT $ini
       while ($brethren = mysqli_fetch_array($brethren_query)) {
         $brethren_id = $brethren['id'];
         $role_id = $brethren['role'];
+        $branch_id = $brethren['branch'];
         $role = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM role WHERE id = '$role_id'"))['name'];
+        $branch = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM branch WHERE id = '$branch_id'"))['name'];
         ?>
         <tr>
           <td>
-            <a href="individual_view.php?id=<?php echo $brethren['id'] ?>" target="_blank">
+            <a href="individual_view.php?id=<?php echo $brethren['id'] ?>">
               <img src="assets/images/members/<?php echo $brethren['picture'] ?>" alt="image" />
             </a>
           </td>
           <td><?php echo strtoupper($brethren['name']) ?></td>
           <td><?php echo $brethren['phone'] ?></td>
           <td><?php echo $role ?></td>
-          <td><?php echo strtoupper($brethren['branch']) ?></td>
+          <td><?php echo strtoupper($branch) ?></td>
           <td>
             <div class="d-flex align-items-center">
               <button class="btn btn-info btn-rounded btn-icon mr-2">
-                <a href="individual_view.php?id=<?php echo $brethren['id'] ?>" target="_blank" class="text-light">
+                <a href="individual_view.php?id=<?php echo $brethren['id'] ?>" class="text-light">
                 <i class="typcn typcn-eye"></i></a>
               </button>
               <button class="btn btn-primary btn-rounded btn-icon mr-2">
-                <a href="individual_edit.php?id=<?php echo $brethren['id'] ?>" target="_blank" class="text-light">
+                <a href="individual_edit.php?id=<?php echo $brethren['id'] ?>" class="text-light">
                 <i class="typcn typcn-edit"></i></a>
               </button>
             </div>
