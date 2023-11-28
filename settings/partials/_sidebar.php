@@ -13,6 +13,19 @@
       </a>
     </li>
     <li class="nav-item <?php echo $sidebar?>">
+      <a class="nav-link" data-toggle="collapse" href="#branch-menu" aria-expanded="false" aria-controls="attd-menu">
+        <i class="typcn typcn-chart-pie-outline menu-icon"></i>
+        <span class="menu-title">Branches</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="branch-menu">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a id="manage_branch" class="nav-link" href="javascript:;" onclick="newPage(this.id)">Manage Branches</a></li>
+          <li class="nav-item"> <a id="new_branch" class="nav-link" href="javascript:;" onclick="newPage(this.id)">New Branch</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item <?php echo $sidebar?>">
       <a class="nav-link" data-toggle="collapse" href="#users-menu" aria-expanded="false" aria-controls="attd-menu">
         <i class="typcn typcn-chart-pie-outline menu-icon"></i>
         <span class="menu-title">Users</span>
