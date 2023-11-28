@@ -40,7 +40,7 @@ include('php/page-config.php');
         <div class="content-wrapper">
 
           <div class="row">
-            <div class="col-12 m-auto">
+            <div class="col-12 m-auto stretch-card">
               <!-- Total Number of Members -->
               <div class="col-6 col-md-3">
                 <div class="card">
