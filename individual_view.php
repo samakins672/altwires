@@ -13,6 +13,9 @@ $member = mysqli_fetch_array($brethren_query);
 $role_id = $member['role'];
 $role = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM role WHERE id = '$role_id'"))['name'];
 
+$branch_id = $member['branch'];
+$branch = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM branch WHERE id = '$branch_id'"))['name'];
+
 $class_id = $member['class'];
 $class = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM class WHERE id = '$class_id'"))['name'];
 
@@ -115,7 +118,7 @@ if (isset($_GET['edited'])) {
                           Branch
                         </p>
                         <p class="mb-2">
-                          <?php echo $member['branch'] ?>.
+                          <?php echo $branch ?>.
                         </p>
                       </address>
                     </div>
