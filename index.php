@@ -83,34 +83,31 @@ include('php/page-config.php');
             </div>
 
             <!-- Table for Upcoming Birthdays -->
-            <div class="row mt-4">
-              <div class="col-md-6 col-12">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">Upcoming Birthdays</h5>
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>Name</th>
-                          <th>Date</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>John Doe</td>
-                          <td>2023-05-15</td>
-                        </tr>
-                        <tr>
-                          <td>Jane Smith</td>
-                          <td>2023-06-10</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+            <div class="col-md-6 col-12 m-auto stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Upcoming Birthdays</h5>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>John Doe</td>
+                        <td>2023-05-15</td>
+                      </tr>
+                      <tr>
+                        <td>Jane Smith</td>
+                        <td>2023-06-10</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
-
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.php -->
