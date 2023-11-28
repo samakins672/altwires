@@ -85,10 +85,10 @@ include('php/page-config.php');
             <!-- Table for Upcoming Birthdays -->
             <div class="col-12 my-5">
               <div class="col-md-6 col-12 m-auto">
-                <div class="card bg-gradient-primary text-light">
+                <div class="card bg-gradient-primary">
                   <div class="card-body">
-                    <h5 class="card-title">Upcoming Birthdays</h5>
-                    <table class="table">
+                    <h5 class="card-title text-light">Upcoming Birthdays</h5>
+                    <table class="table text-light">
                       <thead>
                         <tr>
                           <th>Name</th>
