@@ -4,7 +4,7 @@ include('php/config.php');
 include('php/page-config.php');
 
 // Get total number of members
-$totalMembers = getTotalCount($conn, '= 9');
+$totalMembers = getTotalCount($conn, '!= 10');
 
 // Get total number of visitors
 $totalVisitors = getTotalCount($conn, '= 10');
