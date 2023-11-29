@@ -3,6 +3,21 @@ session_start();
 include('php/config.php');
 include('php/page-config.php');
 
+// Get total number of members
+$totalMembers = getTotalCount($conn, '= 9');
+
+// Get total number of visitors
+$totalVisitors = getTotalCount($conn, '= 10');
+
+// Get total number of branches
+$totalBranches = getBranch($conn, 'branch');
+
+// Get total number of workers
+$totalWorkers = getTotalCount($conn, '!= 9 OR role != 10');
+
+// Get upcoming birthdays
+$upcomingBirthdays = getUpcomingBirthdays($conn);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +61,7 @@ include('php/page-config.php');
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Total Members</h5>
-                    <p class="h1 text-primary">1500</p>
+                    <p class="h1 text-primary"><?php echo $totalMembers ?></p>
                   </div>
                 </div>
               </div>
@@ -56,7 +71,7 @@ include('php/page-config.php');
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Total Visitors</h5>
-                    <p class="h1 text-primary">500</p>
+                    <p class="h1 text-primary"><?php echo $totalVisitors ?></p>
                   </div>
                 </div>
               </div>
@@ -66,7 +81,7 @@ include('php/page-config.php');
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Total Branches</h5>
-                    <p class="h1 text-primary">10</p>
+                    <p class="h1 text-primary"><?php echo $totalBranches ?></p>
                   </div>
                 </div>
               </div>
@@ -76,7 +91,7 @@ include('php/page-config.php');
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Total Workers</h5>
-                    <p class="h1 text-primary">200</p>
+                    <p class="h1 text-primary"><?php echo $totalWorkers ?></p>
                   </div>
                 </div>
               </div>
@@ -98,14 +113,14 @@ include('php/page-config.php');
                         </tr>
                       </thead>
                       <tbody>
+                        <?php
+                        foreach ($upcomingBirthdays as $birthday):
+                        ?>
                         <tr>
-                          <td>John Doe</td>
-                          <td>2023-05-15</td>
+                          <td><?php echo $birthday['name']?></td>
+                          <td><?php echo $birthday['dob']?></td>
                         </tr>
-                        <tr>
-                          <td>Jane Smith</td>
-                          <td>2023-06-10</td>
-                        </tr>
+                        <?php endforeach; ?>
                       </tbody>
                     </table>
                   </div>
