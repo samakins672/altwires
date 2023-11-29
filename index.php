@@ -13,7 +13,7 @@ $totalVisitors = getTotalCount($conn, '= 10');
 $totalBranches = getBranch($conn, 'branch');
 
 // Get total number of workers
-$totalWorkers = getTotalCount($conn, '!= 9 OR role != 10');
+$totalWorkers = getTotalCount($conn, '!= 9 AND role != 10');
 
 // Get upcoming birthdays
 $upcomingBirthdays = getUpcomingBirthdays($conn);
