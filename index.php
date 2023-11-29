@@ -117,7 +117,7 @@ $upcomingBirthdays = getUpcomingBirthdays($conn);
                         foreach ($upcomingBirthdays as $birthday):
                         ?>
                         <tr>
-                          <td><?php echo $birthday['name']?></td>
+                          <td><?php echo strtoupper($birthday['name'])?></td>
                           <td><?php echo $birthday['dob']?></td>
                         </tr>
                         <?php endforeach; ?>
