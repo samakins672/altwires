@@ -40,7 +40,7 @@ include('php/page-config.php');
         <div class="content-wrapper">
 
           <div class="row">
-            <div class="col-12 m-auto scrolling-wrapper flex-row flex-nowrap ">
+            <div class="col-12 m-auto row flex-row flex-nowrap pb-3" style="overflow-x: auto;">
               <!-- Total Number of Members -->
               <div class="col-6 col-md-3">
                 <div class="card">
